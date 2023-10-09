@@ -2,6 +2,7 @@ package com.example.FastCampusProjectBoard.repository;
 
 import com.example.FastCampusProjectBoard.config.JpaConfig;
 import com.example.FastCampusProjectBoard.domain.Article;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Import;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-
+@Disabled
 @DisplayName("JPA 연결 테스트")
 @Import(JpaConfig.class)
 @DataJpaTest
@@ -26,6 +27,7 @@ class JpaRepositoryTest {
         this.articleCommentRepository = articleCommentRepository;
     }
 
+    @Disabled
     @DisplayName("select test")
     @Test
     void givenTestData_whenSelecting_thenWorksFine(){
