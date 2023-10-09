@@ -38,7 +38,7 @@ class ArticleControllerTest {
     public void givenNoting_whenRequestingArticleView_thenReturnsAtricleView() throws Exception {
         mvc.perform(get("/articles/1"))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML))
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(MockMvcResultMatchers.view().name("articles/detail"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("article"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("articleComments"));
@@ -50,7 +50,7 @@ class ArticleControllerTest {
         mvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("articles/search"))
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML));
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML));
     }
     @Disabled("구현 중")
     @DisplayName("[view]GET 게시글 해시태그 검색 페이지 - 정상호출")
@@ -59,6 +59,6 @@ class ArticleControllerTest {
         mvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("articles/search-hashtag"))
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML));
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML));
     }
 }
